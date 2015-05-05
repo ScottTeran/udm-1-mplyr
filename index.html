@@ -11,7 +11,7 @@
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/player.js"></script>
         <style>
           #container {
             margin: 6px;
@@ -20,8 +20,32 @@
     </head>
     <body>
       
-      <!--> ui container </!--> 
-      <div id="container"></div>
+      <!-- ui container --> 
+      <div id="container">
+        <audio id="player"/>
+          <source src="assets/loveDagger.mp3" />
+        </audio>
+
+        <button id="btnPlay">Play</button>
+        <button id="btnPause">Pause</button>
+        <button id="btnStop">Stop</button>
+        <label for="rngVolume">Volume</label>
+        <input type="range" id="rngVolume" min="0" max="1" step=".01"value='.5' data-highlight="true" onchange="changeVolume()"/>
+
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Songs</li>
+          <li><a href="#" onclick="changeSong('sunshine')">Sunshine</a></li>
+          <li><a href="#" onclick="changeSong('iSee')">I See</a></li>
+          <li><a href="#" onclick="changeSong('finalRewind')">The Final Rewind</a></li>
+          <li><a href="#" onclick="changeSong('audioBeast')">Audio Beast</
+          <li><a href="#" onclick="changeSong('meaning')">Meaning</a></li>
+        </ul>
+
+        <div data-role="footer">
+        <output id="timeOut">Elapsed Time:</output>
+        </div>
+
+      </div>
         
     </body>
 </html>
